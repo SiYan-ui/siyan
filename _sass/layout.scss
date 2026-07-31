@@ -50,6 +50,7 @@
   height:100vh;
   z-index:-1;
   background:none;
+  pointer-events:none;
 }
 
 @include mq(desktop){

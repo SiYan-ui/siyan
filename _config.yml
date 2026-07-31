@@ -1,7 +1,7 @@
 title: "思闫"
 description: "思闫的个人博客"
-logo_img: "/assets/img/cat.png"
-profile_img: "/assets/img/profile.webp"
+logo_img: "/assets/img/favicon.webp"
+profile_img: "/assets/img/favicon.webp"
 
 category_names:
   "Category A": "技术备忘"

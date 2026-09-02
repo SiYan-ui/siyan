@@ -332,6 +332,8 @@ wifi:
 
 HACS安装好以后，在HACS中安装vivohomebridge，这个插件，可以使用git克隆仓库到`/config/custom_components`,这个路径，注意只需要脚本部分。
 
+克隆不下来可以使用国内镜像。
+
 vivo智慧生活只能看到每个设备的开关和传感器，因此无法看见脚本和自动化流程。
 
 因此我的自动化触发开关是CT30W的light开关。

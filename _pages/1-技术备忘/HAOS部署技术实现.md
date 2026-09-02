@@ -31,21 +31,25 @@ thumbnail: "/assets/img/cover/HAOS.png"
 记录`stok`字段
 > 坑： 时间长了该字段会变断电重启也会变
 复制下面的链接，把 <STOK> 替换成上面自己的值，然后访问，开启路由器 SSH。
-```
-http://192.168.31.1/cgi-bin/luci/;stok=<STOK>/api/misystem/set_config_iotdev?bssid=Xiaomi&user_id=longdike&ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
 
+```bash
+http://192.168.31.1/cgi-bin/luci/;stok=<STOK>/api/misystem/set_config_iotdev?bssid=Xiaomi&user_id=longdike&ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
 ```
+
 > 坑： 注意自己设备ip
 
 如果显示以下内容证明开启成功
-```
+```html
 {"code":0}
 ```
+
 ## 修改登录密码
 通过漏洞注入，将你的 stok=example/​ 字符串后的内容删除，替换成以下内容
-```
+
+```bash
 api/misystem/set_config_iotdev?bssid=Xiaomi&user_id=longdike&ssid=-h%3B%20echo%20-e%20'admin%5Cnadmin'%20%7C%20passwd%20root%3B
 ```
+
 密码将被修改为 admin​
 
 ## 刷入固件
@@ -71,10 +75,12 @@ mtd -r write openwrt-24.10.2-ramips-mt7621-xiaomi_mi-router-ac2100-squashfs-root
 opkg update
 opkg install redsocks
 ```
+
 编辑配置文件 `/etc/redsocks.conf`
 ```bash
 vi /etc/redsocks.conf
 ```
+
 最小可用配置模板
 ```conf
 base {
@@ -97,6 +103,7 @@ redsocks {
     password = "";
 }
 ```
+
 - `type` 可选：`socks5` / `socks4` / `http‑connect`
 - `local_port` redsocks 本地监听端口，后面 iptables 把流量重定向到此端口。
 

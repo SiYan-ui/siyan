@@ -7,10 +7,6 @@ category_names:
   "Category A": "技术备忘"
   "Category B": "踩坑记录"
   "Subcategory a": "示例文章"
-  "Subcategory b": "读书与学习"
-  "Subcategory c": "其他记录"
-  "Subsubcategory 1": "经典文学（一）"
-  "Subsubcategory 2": "经典文学（二）"
   "personal-notes": "个人随笔"
 
 # Social Links
@@ -55,7 +51,7 @@ defaults:
       type: "pages"
     values:
       layout: "page"
-      date: "1900-01-01"
+      date: "2026-10-01"
 
 # Markdown newline activator 
 kramdown:
